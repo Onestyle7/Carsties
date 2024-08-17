@@ -5,21 +5,26 @@ VisualStudioVersion = 17.0.31903.59
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{D5310E0F-A590-4528-A407-8EA13E940D60}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AuctionService", "src\AuctionService\AuctionService.csproj", "{672A9AEA-D5E2-4CC3-824D-E2781E3BFA47}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AuctionService", "src\AuctionService\AuctionService.csproj", "{672A9AEA-D5E2-4CC3-824D-E2781E3BFA47}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Elementy rozwiązania", "Elementy rozwiązania", "{0F4756CA-29C7-4298-8EAA-E56E146170C9}"
+	ProjectSection(SolutionItems) = preProject
+		.gitignore = .gitignore
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
-	GlobalSection(SolutionProperties) = preSolution
-		HideSolutionNode = FALSE
-	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{672A9AEA-D5E2-4CC3-824D-E2781E3BFA47}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{672A9AEA-D5E2-4CC3-824D-E2781E3BFA47}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{672A9AEA-D5E2-4CC3-824D-E2781E3BFA47}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{672A9AEA-D5E2-4CC3-824D-E2781E3BFA47}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{672A9AEA-D5E2-4CC3-824D-E2781E3BFA47} = {D5310E0F-A590-4528-A407-8EA13E940D60}
