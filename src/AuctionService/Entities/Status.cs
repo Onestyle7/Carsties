@@ -4,6 +4,6 @@ namespace AuctionService.Entities
     {
        Live,
        Finished,
-       Reserved
+       ReserveNotMet
     }
 }
