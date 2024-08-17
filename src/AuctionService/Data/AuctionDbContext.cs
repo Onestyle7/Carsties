@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using AuctionService.Entities;
+using Microsoft.EntityFrameworkCore;
 
 namespace AuctionService.Data
 {
@@ -7,5 +8,7 @@ namespace AuctionService.Data
         public AuctionDbContext(DbContextOptions options) : base(options)
         {
         }
+        public DbSet<Auction> Auctions { get; set; }
+        
     }
 }
