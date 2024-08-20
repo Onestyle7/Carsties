@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "+CcBNjJOIVI=",
+  "dgSpecHash": "2LtMQKpYVCQ=",
   "success": true,
-  "projectFilePath": "C:\\Users\\klusb\\Desktop\\Carsties\\src\\AuctionService\\AuctionService.csproj",
+  "projectFilePath": "C:\\users\\klusb\\desktop\\carsties\\src\\AuctionService\\AuctionService.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\klusb\\.nuget\\packages\\automapper\\13.0.1\\automapper.13.0.1.nupkg.sha512",
     "C:\\Users\\klusb\\.nuget\\packages\\awssdk.core\\3.7.100.14\\awssdk.core.3.7.100.14.nupkg.sha512",
