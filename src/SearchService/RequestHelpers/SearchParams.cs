@@ -1,6 +1,5 @@
-using System;
 
-namespace SearchService.RequestHelpers;
+﻿namespace SearchService;
 
 public class SearchParams
 {
