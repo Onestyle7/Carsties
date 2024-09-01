@@ -1,5 +1,4 @@
-
-﻿namespace SearchService;
+namespace SearchService;
 
 public class SearchParams
 {
