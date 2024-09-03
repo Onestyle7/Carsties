@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
 
-namespace AuctionService.Migrations
+namespace AuctionService.Data.Migrations
 {
     /// <inheritdoc />
     public partial class InitialCreate : Migration
@@ -17,7 +17,7 @@ namespace AuctionService.Migrations
                 {
                     Id = table.Column<Guid>(type: "uuid", nullable: false),
                     ReservePrice = table.Column<int>(type: "integer", nullable: false),
-                    Seller = table.Column<string>(type: "text", nullable: false),
+                    Seller = table.Column<string>(type: "text", nullable: true),
                     Winner = table.Column<string>(type: "text", nullable: true),
                     SoldAmount = table.Column<int>(type: "integer", nullable: true),
                     CurrentHighBid = table.Column<int>(type: "integer", nullable: true),
@@ -32,23 +32,23 @@ namespace AuctionService.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Item",
+                name: "Items",
                 columns: table => new
                 {
                     Id = table.Column<Guid>(type: "uuid", nullable: false),
-                    Make = table.Column<string>(type: "text", nullable: false),
-                    Model = table.Column<string>(type: "text", nullable: false),
+                    Make = table.Column<string>(type: "text", nullable: true),
+                    Model = table.Column<string>(type: "text", nullable: true),
                     Year = table.Column<int>(type: "integer", nullable: false),
-                    Color = table.Column<string>(type: "text", nullable: false),
+                    Color = table.Column<string>(type: "text", nullable: true),
                     Mileage = table.Column<int>(type: "integer", nullable: false),
-                    ImageUrl = table.Column<string>(type: "text", nullable: false),
+                    ImageUrl = table.Column<string>(type: "text", nullable: true),
                     AuctionId = table.Column<Guid>(type: "uuid", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Item", x => x.Id);
+                    table.PrimaryKey("PK_Items", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Item_Auctions_AuctionId",
+                        name: "FK_Items_Auctions_AuctionId",
                         column: x => x.AuctionId,
                         principalTable: "Auctions",
                         principalColumn: "Id",
@@ -56,8 +56,8 @@ namespace AuctionService.Migrations
                 });
 
             migrationBuilder.CreateIndex(
-                name: "IX_Item_AuctionId",
-                table: "Item",
+                name: "IX_Items_AuctionId",
+                table: "Items",
                 column: "AuctionId",
                 unique: true);
         }
@@ -66,7 +66,7 @@ namespace AuctionService.Migrations
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "Item");
+                name: "Items");
 
             migrationBuilder.DropTable(
                 name: "Auctions");

@@ -1,4 +1,4 @@
-using AuctionService.DTOs;
+﻿using AuctionService.DTOs;
 using AuctionService.Entities;
 using AutoMapper;
 using Contracts;

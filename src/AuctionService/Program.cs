@@ -1,4 +1,4 @@
-using AuctionService.Consumers;
+using AuctionService;
 using AuctionService.Data;
 using MassTransit;
 using Microsoft.EntityFrameworkCore;
@@ -6,16 +6,15 @@ using Microsoft.EntityFrameworkCore;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-
 builder.Services.AddControllers();
-builder.Services.AddDbContext<AuctionDbContext>(options =>
+builder.Services.AddDbContext<AuctionDbContext>(opt =>
 {
-    options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection"));
+    opt.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection"));
 });
 builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
-builder.Services.AddMassTransit( x =>
+builder.Services.AddMassTransit(x => 
 {
-    x.AddEntityFrameworkOutbox<AuctionDbContext>( o => 
+    x.AddEntityFrameworkOutbox<AuctionDbContext>(o =>
     {
         o.QueryDelay = TimeSpan.FromSeconds(10);
 
@@ -27,10 +26,12 @@ builder.Services.AddMassTransit( x =>
 
     x.SetEndpointNameFormatter(new KebabCaseEndpointNameFormatter("auction", false));
 
-    x.UsingRabbitMq((context, cfg) => {
+    x.UsingRabbitMq((context, cfg) => 
+    {
         cfg.ConfigureEndpoints(context);
     });
 });
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -45,7 +46,7 @@ try
 }
 catch (Exception e)
 {
-    Console.WriteLine(e.Message);
+    Console.WriteLine(e);
 }
 
 app.Run();
