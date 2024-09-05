@@ -1,7 +1,6 @@
 using System.Security.Claims;
 using IdentityModel;
 using IdentityService.Models;
-using IdentityService.Pages.Account.Register;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
