@@ -1,9 +1,8 @@
-using System;
-using Contracts;
+﻿using Contracts;
 using MassTransit;
 using MongoDB.Entities;
 
-namespace SearchService.Consumers;
+namespace SearchService;
 
 public class BidPlacedConsumer : IConsumer<BidPlaced>
 {
@@ -11,14 +10,13 @@ public class BidPlacedConsumer : IConsumer<BidPlaced>
     {
         Console.WriteLine("--> Consuming bid placed");
 
-        var auction = await DB.Find<Item>()
-            .OneAsync(context.Message.AuctionId);
+        var auction = await DB.Find<Item>().OneAsync(context.Message.AuctionId);
 
-        if(context.Message.BidStatus.Contains("Accepted")
+        if (context.Message.BidStatus.Contains("Accepted") 
             && context.Message.Amount > auction.CurrentHighBid)
         {
             auction.CurrentHighBid = context.Message.Amount;
-            await auction.SaveAsync();        
-        }    
+            await auction.SaveAsync();
+        }
     }
 }
