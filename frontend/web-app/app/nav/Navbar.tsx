@@ -2,6 +2,7 @@
 
 import React from 'react'
 import { AiOutlineCar } from 'react-icons/ai'
+import Search from './Search'
 
 export default function Navbar() {
   console.log('Client compontent')
@@ -12,7 +13,7 @@ export default function Navbar() {
         <AiOutlineCar size={34}/>
         <div>Carsties Auctions</div>
       </div>
-      <div>Search</div>
+      <Search />
       <div>Right</div>
     </header>
   )
