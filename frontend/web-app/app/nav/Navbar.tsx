@@ -1,9 +1,8 @@
-'use client'
-
 import React from 'react'
 import { AiOutlineCar } from 'react-icons/ai'
 import Search from './Search'
 import Logo from './Logo'
+import LoginButton from './LoginButton'
 
 export default function Navbar() {
   console.log('Client compontent')
@@ -12,7 +11,7 @@ export default function Navbar() {
     shadow-md'>
       <Logo />
       <Search />
-      <div>Right</div>
+      <LoginButton />
     </header>
   )
 }
