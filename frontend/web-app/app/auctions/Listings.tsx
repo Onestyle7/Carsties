@@ -12,6 +12,7 @@ import { useShallow } from 'zustand/react/shallow';
 import qs from 'query-string';
 import { url } from 'inspector';
 import EmptyFilter from '../components/EmptyFilter';
+import { WiMoonNew } from 'react-icons/wi';
 
 
 export default function Listings() {
@@ -21,7 +22,9 @@ export default function Listings() {
         pageSize: state.pageSize,
         searchTerm: state.searchTerm,
         orderBy: state.orderBy,
-        filterBy: state.filterBy
+        filterBy: state.filterBy,
+        seller: state.seller,
+        winner: state.winner
     })));
 
     const setParams = useParamsStore(state => state.setParams);
