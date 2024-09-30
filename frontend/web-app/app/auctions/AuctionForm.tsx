@@ -8,6 +8,7 @@ import DateInput from '../components/DateInput';
 import { usePathname, useRouter } from 'next/navigation';
 import { Auction } from '@/types';
 import { createAuction } from '../Actions/auctionActions';
+import toast from 'react-hot-toast';
 
 export default function AuctionForm() {
     const router = useRouter(); 
@@ -27,9 +28,8 @@ export default function AuctionForm() {
                   throw new Error(res.error.message || 'Failed to create auction');
               }
               router.push(`/auctions/details/${res.id}`);
-          } catch (error) {
-              console.error('Error while creating auction:', error);
-              alert('An error occurred while creating the auction.');
+          } catch (error: any) {
+              toast.error(error.status + '' + error.message);
           }
       }
 
