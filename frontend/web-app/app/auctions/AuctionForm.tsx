@@ -1,15 +1,18 @@
 'use client'
 
-import { error } from 'console';
 import { Button, TextInput } from 'flowbite-react';
 import React, { useEffect } from 'react'
-import { FieldValues, Form, useForm } from 'react-hook-form';
+import { FieldValues, useForm } from 'react-hook-form'
 import Input from '../components/Input';
 import DateInput from '../components/DateInput';
+import { usePathname, useRouter } from 'next/navigation';
+import { Auction } from '@/types';
+import { createAuction } from '../Actions/auctionActions';
 
 export default function AuctionForm() {
+    const router = useRouter(); 
     const {control, handleSubmit, setFocus,
-        formState: {isSubmitting, isValid, isDirty, errors}} = useForm({
+        formState: {isSubmitting, isValid}} = useForm({
           mode: 'onTouched'
         });
 
@@ -17,8 +20,17 @@ export default function AuctionForm() {
           setFocus('make')
         }, [setFocus])
 
-      function onSubmit(data: FieldValues){
-        console.log(data);  
+        async function onSubmit(data: FieldValues) {
+          try {
+              const res = await createAuction(data);
+              if (res.error) {
+                  throw new Error(res.error.message || 'Failed to create auction');
+              }
+              router.push(`/auctions/details/${res.id}`);
+          } catch (error) {
+              console.error('Error while creating auction:', error);
+              alert('An error occurred while creating the auction.');
+          }
       }
 
     return (
