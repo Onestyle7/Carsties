@@ -2,7 +2,7 @@
 
 import { auth } from "@/auth";
 import { fetchWrapper } from "@/lib/fetchWrapper";
-import { Auction, PageResult } from "@/types";
+import { Auction, Bid, PageResult } from "@/types";
 import { revalidatePath } from "next/cache";
 import { FieldValue, FieldValues } from "react-hook-form";
 
@@ -40,5 +40,9 @@ export async function UpdateAuction(data:FieldValues, id: string) {
 
 export async function deleteAuction(id: string){
   return await fetchWrapper.del(`auctions/${id}`);
+}
+
+export async function getBidsForAuction(id: string): Promise<Bid[]>{
+  return await fetchWrapper.get(`bids/${id}`);
 }
   
