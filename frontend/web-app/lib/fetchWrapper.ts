@@ -56,7 +56,13 @@ async function getHeaders(){
 
 async function handleResopnse(response: Response) {
     const text = await response.text();
-    const data = text && JSON.parse(text);
+    /* const data = text && JSON.parse(text); */
+    let data;
+    try{
+        data = JSON.parse(text);
+    }catch(error){
+        data = text;
+    }
 
     if(response.ok){
         return data || response.statusText;
@@ -64,10 +70,9 @@ async function handleResopnse(response: Response) {
     else {
         const error = {
             status: response.status,
-            message: response.statusText,
+            message: typeof data === 'string' ? data : response.statusText,
             data: data || text
         };
-        console.error("Error from API: ", error);
         return {error};
     }
 }
