@@ -32,12 +32,17 @@ public class BidsController : ControllerBase
     {
         var auction = await DB.Find<Auction>().OneAsync(auctionId);
 
-        if(auction == null)
+       if (auction == null)
+{
+        auction = _grpcAuctionClient.GetAuction(auctionId);
+        if (auction == null)
         {
-            auction = _grpcAuctionClient.GetAuction(auctionId);
-
-            if(auction == null) return BadRequest("Cannot accept bids on this auction at this time");
+            // Logowanie dla diagnostyki
+            Console.WriteLine($"Auction with ID {auctionId} not found in gRPC or database.");
+            return BadRequest("Cannot accept bids on this auction at this time");
         }
+}
+
         if(auction.Seller == User.Identity.Name){
             return BadRequest("You can't bid on your own auction");
         }
