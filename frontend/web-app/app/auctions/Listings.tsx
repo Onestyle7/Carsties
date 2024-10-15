@@ -2,18 +2,13 @@
 
 import React, { useEffect, useState } from 'react'
 import AuctionCard from './AuctionCard';
-import { Auction, PageResult } from '@/types';
 import AppPagination from '../components/AppPagination';
 import { getData } from '../Actions/auctionActions';
 import Filters from './Filters';
-import { useParams } from 'next/navigation';
 import { useParamsStore } from '@/hooks/useParamsStore';
 import { useShallow } from 'zustand/react/shallow';
 import qs from 'query-string';
-import { url } from 'inspector';
 import EmptyFilter from '../components/EmptyFilter';
-import { WiMoonNew } from 'react-icons/wi';
-import { shallow } from 'zustand/shallow';
 import { useAuctionStore } from '@/hooks/useAuctionStore';
 
 

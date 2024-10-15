@@ -3,7 +3,6 @@ import { ButtonGroup, Button } from 'flowbite-react'
 import { useParamsStore } from '@/hooks/useParamsStore';
 import { AiOutlineClockCircle, AiOutlineSortAscending } from 'react-icons/ai';
 import { BsFillStopCircleFill, BsStopwatchFill } from 'react-icons/bs';
-import { IconBase } from 'react-icons';
 import { GiFinishLine, GiFlame } from 'react-icons/gi';
 
 

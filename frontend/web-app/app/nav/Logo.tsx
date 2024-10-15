@@ -8,8 +8,6 @@ import { AiOutlineCar } from 'react-icons/ai'
 export default function Logo() {
     const router = useRouter();
     const pathName = usePathname();
-    const reset = useParamsStore(state => state.reset);
-
     function doReset(){
         if(pathName !== '/'){
             router.push('/');
